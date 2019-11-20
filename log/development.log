@@ -179,3 +179,927 @@ Processing by ProductsController#index as HTML
 Completed 200 OK in 48ms (Views: 45.2ms | ActiveRecord: 0.7ms | Allocations: 8639)
 
 
+Started GET "/" for ::1 at 2019-11-20 00:25:42 -0600
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:9
+  Rendered products/index.html.erb within layouts/application (Duration: 6.5ms | Allocations: 1534)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered sessions/_form.html.erb (Duration: 1.6ms | Allocations: 634)
+Completed 200 OK in 86ms (Views: 73.8ms | ActiveRecord: 3.8ms | Allocations: 27181)
+
+
+Started POST "/login" for ::1 at 2019-11-20 00:26:11 -0600
+Processing by SessionsController#create as JS
+  Parameters: {"authenticity_token"=>"yReMI/DwGVe9drLMoMM7Lq4QEYniJDXIf5nlvHcpb1VIzZJNjhg2/zpeX0KkKmi17OzYJoRskqyu7DZAhZ8X+w==", "user"=>{"username"=>"hemesh", "password"=>"[FILTERED]"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "hemesh"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+Redirected to http://localhost:3000/
+Completed 200 OK in 3ms (ActiveRecord: 0.2ms | Allocations: 1146)
+
+
+Started GET "/" for ::1 at 2019-11-20 00:26:11 -0600
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:9
+  Rendered products/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 592)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered sessions/_form.html.erb (Duration: 0.5ms | Allocations: 244)
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.7ms | Allocations: 8635)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (208.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "AppleXchangeV2_development"[0m
+  [1m[35m (218.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "AppleXchangeV2_test"[0m
+  [1m[35m (507.3ms)[0m  [1m[35mCREATE DATABASE "AppleXchangeV2_development" ENCODING = 'unicode'[0m
+  [1m[35m (384.8ms)[0m  [1m[35mCREATE DATABASE "AppleXchangeV2_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments" CASCADE[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "listing_id" integer, "user_id" integer, "content" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "exchanges" CASCADE[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "exchanges" ("id" bigserial primary key, "listing_id" integer, "user_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "listings" CASCADE[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "listings" ("id" bigserial primary key, "user_id" integer, "product_id" integer, "condition" character varying, "color" character varying, "storage" character varying, "memory" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "active" boolean DEFAULT TRUE, "price" float)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "products" CASCADE[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "name" character varying, "type_id" integer, "model" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "image_url" character varying)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "reviews" CASCADE[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" bigserial primary key, "product_id" integer, "user_id" integer, "content" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "types" CASCADE[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "types" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "username" character varying, "password_digest" character varying, "likes" integer, "balance" float, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190910191920)[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190909210142),
+(20190909212432),
+(20190909213143),
+(20190909213353),
+(20190909213535),
+(20190909220806),
+(20190910151325),
+(20190910151508),
+(20190910183036);
+
+[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-11-20 06:26:38.941029"], ["updated_at", "2019-11-20 06:26:38.941029"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "9c9b60055896de5d9ec0bc362ca83c56bd6419a0"], ["created_at", "2019-11-20 06:26:38.959432"], ["updated_at", "2019-11-20 06:26:38.959432"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments" CASCADE[0m
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "listing_id" integer, "user_id" integer, "content" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "exchanges" CASCADE[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "exchanges" ("id" bigserial primary key, "listing_id" integer, "user_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "listings" CASCADE[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "listings" ("id" bigserial primary key, "user_id" integer, "product_id" integer, "condition" character varying, "color" character varying, "storage" character varying, "memory" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "active" boolean DEFAULT TRUE, "price" float)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "products" CASCADE[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "name" character varying, "type_id" integer, "model" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "image_url" character varying)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "reviews" CASCADE[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" bigserial primary key, "product_id" integer, "user_id" integer, "content" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "types" CASCADE[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "types" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "username" character varying, "password_digest" character varying, "likes" integer, "balance" float, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190910191920)[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190909210142),
+(20190909212432),
+(20190909213143),
+(20190909213353),
+(20190909213535),
+(20190909220806),
+(20190910151325),
+(20190910151508),
+(20190910183036);
+
+[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-11-20 06:26:39.035757"], ["updated_at", "2019-11-20 06:26:39.035757"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2019-11-20 06:26:39.040685"], ["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "9c9b60055896de5d9ec0bc362ca83c56bd6419a0"], ["created_at", "2019-11-20 06:26:39.045833"], ["updated_at", "2019-11-20 06:26:39.045833"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "hemesh"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "username", "password_digest", "likes", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Hemesh"], ["last_name", "Patel"], ["username", "hemesh"], ["password_digest", "$2a$12$.eho38RrOOqLnqfj2XMhCu.mnRTFjc7nkl.ksbVI96gH5CPSjkYZ."], ["likes", 0], ["balance", 1000.0], ["created_at", "2019-11-20 06:26:39.294979"], ["updated_at", "2019-11-20 06:26:39.294979"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jason"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "username", "password_digest", "likes", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Jason"], ["last_name", "Le"], ["username", "jason"], ["password_digest", "$2a$12$4Y14p2Ex8mOMpUa0GLfqvugynrN0voYShlh66EcmNHKyOxhwreUz2"], ["likes", 0], ["balance", 1000.0], ["created_at", "2019-11-20 06:26:39.501456"], ["updated_at", "2019-11-20 06:26:39.501456"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "edwin"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "username", "password_digest", "likes", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Edwin"], ["last_name", "Kim"], ["username", "edwin"], ["password_digest", "$2a$12$whjOCrwMzYxWkmgBddGI9ePn91NT0bInIo7McvGpsC1Bht.ZdUzl2"], ["likes", 0], ["balance", 1000.0], ["created_at", "2019-11-20 06:26:39.725916"], ["updated_at", "2019-11-20 06:26:39.725916"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mType Create (0.6ms)[0m  [1m[32mINSERT INTO "types" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "iPhone"], ["created_at", "2019-11-20 06:26:39.738048"], ["updated_at", "2019-11-20 06:26:39.738048"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mType Create (0.3ms)[0m  [1m[32mINSERT INTO "types" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "MacBook"], ["created_at", "2019-11-20 06:26:39.742948"], ["updated_at", "2019-11-20 06:26:39.742948"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "type_id", "model", "created_at", "updated_at", "image_url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "iPhone X"], ["type_id", 1], ["model", "A1X00"], ["created_at", "2019-11-20 06:26:39.757471"], ["updated_at", "2019-11-20 06:26:39.757471"], ["image_url", "https://static.swappa.com/images/cache/91/de/91dec1893845dad70aa430166070fdf4.png"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "type_id", "model", "created_at", "updated_at", "image_url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "iPhone Xr"], ["type_id", 1], ["model", "A1XR0"], ["created_at", "2019-11-20 06:26:39.761280"], ["updated_at", "2019-11-20 06:26:39.761280"], ["image_url", "https://static.swappa.com/images/cache/26/1e/261ed909a926f03875f4be3b2c5f3ddb.png"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "type_id", "model", "created_at", "updated_at", "image_url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "iPhone Xs"], ["type_id", 1], ["model", "A1XS0"], ["created_at", "2019-11-20 06:26:39.764310"], ["updated_at", "2019-11-20 06:26:39.764310"], ["image_url", "https://static.swappa.com/images/cache/62/9f/629f463797d15cedc41504a2e861007c.png"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "type_id", "model", "created_at", "updated_at", "image_url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "iPhone Xs Max"], ["type_id", 1], ["model", "A1XSM"], ["created_at", "2019-11-20 06:26:39.767673"], ["updated_at", "2019-11-20 06:26:39.767673"], ["image_url", "https://static.swappa.com/images/cache/19/9a/199a8276af100c1edbea104d4b6348ad.png"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "type_id", "model", "created_at", "updated_at", "image_url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "iPhone 8"], ["type_id", 1], ["model", "A18SM"], ["created_at", "2019-11-20 06:26:39.770268"], ["updated_at", "2019-11-20 06:26:39.770268"], ["image_url", "https://static.swappa.com/images/cache/ae/d6/aed6b6696fa00664c04651626f69571f.png"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "type_id", "model", "created_at", "updated_at", "image_url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "iPhone 8 Plus"], ["type_id", 1], ["model", "A18PL"], ["created_at", "2019-11-20 06:26:39.773298"], ["updated_at", "2019-11-20 06:26:39.773298"], ["image_url", "https://static.swappa.com/images/cache/ee/25/ee25ac6c7a6343c7420fac7a987fea0b.png"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "type_id", "model", "created_at", "updated_at", "image_url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "MacBook "], ["type_id", 2], ["model", "AMB12"], ["created_at", "2019-11-20 06:26:39.775983"], ["updated_at", "2019-11-20 06:26:39.775983"], ["image_url", "https://static.swappa.com/images/cache/c5/6c/c56c52490d05663aea24ce70c24ec243.png"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "type_id", "model", "created_at", "updated_at", "image_url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "MacBook Pro 13inch"], ["type_id", 2], ["model", "AMB13"], ["created_at", "2019-11-20 06:26:39.778577"], ["updated_at", "2019-11-20 06:26:39.778577"], ["image_url", "https://static.swappa.com/images/cache/fd/47/fd479986b2b3d809b5d88b7c688ea71e.png"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "type_id", "model", "created_at", "updated_at", "image_url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "MacBook Pro 15inch"], ["type_id", 2], ["model", "AMB15"], ["created_at", "2019-11-20 06:26:39.781317"], ["updated_at", "2019-11-20 06:26:39.781317"], ["image_url", "https://static.swappa.com/images/cache/96/59/9659358c7dea51b79b80b8940eec6d81.png"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "type_id", "model", "created_at", "updated_at", "image_url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "MacBook Air"], ["type_id", 2], ["model", "AMBAI"], ["created_at", "2019-11-20 06:26:39.784046"], ["updated_at", "2019-11-20 06:26:39.784046"], ["image_url", "https://static.swappa.com/images/cache/d4/f9/d4f968d512b6e42f68ea20711a9f34e5.png"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mListing Create (0.5ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 1], ["product_id", 1], ["condition", "new"], ["color", "silver"], ["storage", "16gb"], ["memory", "4gb"], ["created_at", "2019-11-20 06:26:39.820946"], ["updated_at", "2019-11-20 06:26:39.820946"], ["price", 529.99]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 2], ["product_id", 1], ["condition", "mint"], ["color", "grey"], ["storage", "32gb"], ["memory", "6gb"], ["created_at", "2019-11-20 06:26:39.835438"], ["updated_at", "2019-11-20 06:26:39.835438"], ["price", 699.99]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 3], ["product_id", 1], ["condition", "good"], ["color", "black"], ["storage", "64gb"], ["memory", "8gb"], ["created_at", "2019-11-20 06:26:39.839767"], ["updated_at", "2019-11-20 06:26:39.839767"], ["price", 567.79]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 1], ["product_id", 1], ["condition", "fair"], ["color", "grey"], ["storage", "128b"], ["memory", "4gb"], ["created_at", "2019-11-20 06:26:39.843827"], ["updated_at", "2019-11-20 06:26:39.843827"], ["price", 345.69]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 2], ["product_id", 1], ["condition", "new"], ["color", "red"], ["storage", "32gb"], ["memory", "4gb"], ["created_at", "2019-11-20 06:26:39.847793"], ["updated_at", "2019-11-20 06:26:39.847793"], ["price", 215.99]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 3], ["product_id", 1], ["condition", "mint"], ["color", "silver"], ["storage", "16gb"], ["memory", "8gb"], ["created_at", "2019-11-20 06:26:39.851649"], ["updated_at", "2019-11-20 06:26:39.851649"], ["price", 349.49]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 1], ["product_id", 2], ["condition", "new"], ["color", "silver"], ["storage", "16gb"], ["memory", "4gb"], ["created_at", "2019-11-20 06:26:39.855471"], ["updated_at", "2019-11-20 06:26:39.855471"], ["price", 100.99]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 2], ["product_id", 2], ["condition", "mint"], ["color", "grey"], ["storage", "32gb"], ["memory", "6gb"], ["created_at", "2019-11-20 06:26:39.859290"], ["updated_at", "2019-11-20 06:26:39.859290"], ["price", 699.99]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mListing Create (0.3ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 3], ["product_id", 2], ["condition", "good"], ["color", "black"], ["storage", "64gb"], ["memory", "8gb"], ["created_at", "2019-11-20 06:26:39.864150"], ["updated_at", "2019-11-20 06:26:39.864150"], ["price", 567.79]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mListing Create (0.3ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 1], ["product_id", 2], ["condition", "fair"], ["color", "grey"], ["storage", "128b"], ["memory", "4gb"], ["created_at", "2019-11-20 06:26:39.868215"], ["updated_at", "2019-11-20 06:26:39.868215"], ["price", 345.69]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 2], ["product_id", 2], ["condition", "new"], ["color", "red"], ["storage", "32gb"], ["memory", "4gb"], ["created_at", "2019-11-20 06:26:39.872744"], ["updated_at", "2019-11-20 06:26:39.872744"], ["price", 215.99]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mListing Create (0.3ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 3], ["product_id", 2], ["condition", "mint"], ["color", "silver"], ["storage", "16gb"], ["memory", "8gb"], ["created_at", "2019-11-20 06:26:39.877224"], ["updated_at", "2019-11-20 06:26:39.877224"], ["price", 349.49]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mListing Create (0.3ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 1], ["product_id", 3], ["condition", "new"], ["color", "silver"], ["storage", "16gb"], ["memory", "4gb"], ["created_at", "2019-11-20 06:26:39.884145"], ["updated_at", "2019-11-20 06:26:39.884145"], ["price", 100.99]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 2], ["product_id", 3], ["condition", "mint"], ["color", "grey"], ["storage", "32gb"], ["memory", "6gb"], ["created_at", "2019-11-20 06:26:39.889356"], ["updated_at", "2019-11-20 06:26:39.889356"], ["price", 699.99]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 3], ["product_id", 3], ["condition", "good"], ["color", "black"], ["storage", "64gb"], ["memory", "8gb"], ["created_at", "2019-11-20 06:26:39.902555"], ["updated_at", "2019-11-20 06:26:39.902555"], ["price", 567.79]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mListing Create (0.3ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 1], ["product_id", 3], ["condition", "fair"], ["color", "grey"], ["storage", "128b"], ["memory", "4gb"], ["created_at", "2019-11-20 06:26:39.909964"], ["updated_at", "2019-11-20 06:26:39.909964"], ["price", 345.69]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mListing Create (0.3ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 2], ["product_id", 3], ["condition", "new"], ["color", "red"], ["storage", "32gb"], ["memory", "4gb"], ["created_at", "2019-11-20 06:26:39.915645"], ["updated_at", "2019-11-20 06:26:39.915645"], ["price", 215.99]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 3], ["product_id", 3], ["condition", "mint"], ["color", "silver"], ["storage", "16gb"], ["memory", "8gb"], ["created_at", "2019-11-20 06:26:39.920717"], ["updated_at", "2019-11-20 06:26:39.920717"], ["price", 349.49]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 1], ["product_id", 4], ["condition", "new"], ["color", "silver"], ["storage", "16gb"], ["memory", "4gb"], ["created_at", "2019-11-20 06:26:39.925170"], ["updated_at", "2019-11-20 06:26:39.925170"], ["price", 100.99]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 2], ["product_id", 4], ["condition", "mint"], ["color", "grey"], ["storage", "32gb"], ["memory", "6gb"], ["created_at", "2019-11-20 06:26:39.929259"], ["updated_at", "2019-11-20 06:26:39.929259"], ["price", 699.99]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mListing Create (0.3ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 3], ["product_id", 4], ["condition", "good"], ["color", "black"], ["storage", "64gb"], ["memory", "8gb"], ["created_at", "2019-11-20 06:26:39.933571"], ["updated_at", "2019-11-20 06:26:39.933571"], ["price", 567.79]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 1], ["product_id", 4], ["condition", "fair"], ["color", "grey"], ["storage", "128b"], ["memory", "4gb"], ["created_at", "2019-11-20 06:26:39.938004"], ["updated_at", "2019-11-20 06:26:39.938004"], ["price", 345.69]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 2], ["product_id", 4], ["condition", "new"], ["color", "red"], ["storage", "32gb"], ["memory", "4gb"], ["created_at", "2019-11-20 06:26:39.941994"], ["updated_at", "2019-11-20 06:26:39.941994"], ["price", 215.99]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 3], ["product_id", 4], ["condition", "mint"], ["color", "silver"], ["storage", "16gb"], ["memory", "8gb"], ["created_at", "2019-11-20 06:26:39.945678"], ["updated_at", "2019-11-20 06:26:39.945678"], ["price", 349.49]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 1], ["product_id", 5], ["condition", "new"], ["color", "silver"], ["storage", "16gb"], ["memory", "4gb"], ["created_at", "2019-11-20 06:26:39.949404"], ["updated_at", "2019-11-20 06:26:39.949404"], ["price", 100.99]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 2], ["product_id", 5], ["condition", "mint"], ["color", "grey"], ["storage", "32gb"], ["memory", "6gb"], ["created_at", "2019-11-20 06:26:39.953118"], ["updated_at", "2019-11-20 06:26:39.953118"], ["price", 699.99]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 3], ["product_id", 5], ["condition", "good"], ["color", "black"], ["storage", "64gb"], ["memory", "8gb"], ["created_at", "2019-11-20 06:26:39.956836"], ["updated_at", "2019-11-20 06:26:39.956836"], ["price", 567.79]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mListing Create (0.4ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 1], ["product_id", 5], ["condition", "fair"], ["color", "grey"], ["storage", "128b"], ["memory", "4gb"], ["created_at", "2019-11-20 06:26:39.969259"], ["updated_at", "2019-11-20 06:26:39.969259"], ["price", 345.69]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mListing Create (0.3ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 2], ["product_id", 5], ["condition", "new"], ["color", "red"], ["storage", "32gb"], ["memory", "4gb"], ["created_at", "2019-11-20 06:26:39.973922"], ["updated_at", "2019-11-20 06:26:39.973922"], ["price", 215.99]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mListing Create (0.3ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 3], ["product_id", 5], ["condition", "mint"], ["color", "silver"], ["storage", "16gb"], ["memory", "8gb"], ["created_at", "2019-11-20 06:26:39.978022"], ["updated_at", "2019-11-20 06:26:39.978022"], ["price", 349.49]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 1], ["product_id", 6], ["condition", "new"], ["color", "silver"], ["storage", "16gb"], ["memory", "4gb"], ["created_at", "2019-11-20 06:26:39.982038"], ["updated_at", "2019-11-20 06:26:39.982038"], ["price", 777.99]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 2], ["product_id", 6], ["condition", "mint"], ["color", "grey"], ["storage", "32gb"], ["memory", "6gb"], ["created_at", "2019-11-20 06:26:39.985917"], ["updated_at", "2019-11-20 06:26:39.985917"], ["price", 699.99]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 3], ["product_id", 6], ["condition", "good"], ["color", "black"], ["storage", "64gb"], ["memory", "8gb"], ["created_at", "2019-11-20 06:26:39.989706"], ["updated_at", "2019-11-20 06:26:39.989706"], ["price", 567.79]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 1], ["product_id", 6], ["condition", "fair"], ["color", "grey"], ["storage", "128b"], ["memory", "4gb"], ["created_at", "2019-11-20 06:26:39.993807"], ["updated_at", "2019-11-20 06:26:39.993807"], ["price", 345.69]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 2], ["product_id", 6], ["condition", "new"], ["color", "red"], ["storage", "32gb"], ["memory", "4gb"], ["created_at", "2019-11-20 06:26:39.997604"], ["updated_at", "2019-11-20 06:26:39.997604"], ["price", 500.99]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 3], ["product_id", 6], ["condition", "mint"], ["color", "silver"], ["storage", "16gb"], ["memory", "8gb"], ["created_at", "2019-11-20 06:26:40.001480"], ["updated_at", "2019-11-20 06:26:40.001480"], ["price", 475.49]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 1], ["product_id", 7], ["condition", "new"], ["color", "silver"], ["storage", "128gb"], ["memory", "8gb"], ["created_at", "2019-11-20 06:26:40.006095"], ["updated_at", "2019-11-20 06:26:40.006095"], ["price", 599.99]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mListing Create (0.4ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 2], ["product_id", 7], ["condition", "new"], ["color", "grey"], ["storage", "256gb"], ["memory", "16gb"], ["created_at", "2019-11-20 06:26:40.010333"], ["updated_at", "2019-11-20 06:26:40.010333"], ["price", 615.99]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 3], ["product_id", 7], ["condition", "new"], ["color", "silver"], ["storage", "512gb"], ["memory", "8gb"], ["created_at", "2019-11-20 06:26:40.016392"], ["updated_at", "2019-11-20 06:26:40.016392"], ["price", 800.99]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 1], ["product_id", 7], ["condition", "new"], ["color", "grey"], ["storage", "1tb"], ["memory", "8gb"], ["created_at", "2019-11-20 06:26:40.021143"], ["updated_at", "2019-11-20 06:26:40.021143"], ["price", 600.99]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 2], ["product_id", 7], ["condition", "new"], ["color", "silver"], ["storage", "512gb"], ["memory", "16gb"], ["created_at", "2019-11-20 06:26:40.032560"], ["updated_at", "2019-11-20 06:26:40.032560"], ["price", 548.99]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mListing Create (0.3ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 3], ["product_id", 7], ["condition", "new"], ["color", "grey"], ["storage", "256gb"], ["memory", "8gb"], ["created_at", "2019-11-20 06:26:40.037173"], ["updated_at", "2019-11-20 06:26:40.037173"], ["price", 788.99]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mListing Create (0.3ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 1], ["product_id", 8], ["condition", "new"], ["color", "silver"], ["storage", "16gb"], ["memory", "4gb"], ["created_at", "2019-11-20 06:26:40.041406"], ["updated_at", "2019-11-20 06:26:40.041406"], ["price", 100.99]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mListing Create (0.3ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 2], ["product_id", 8], ["condition", "new"], ["color", "grey"], ["storage", "256gb"], ["memory", "16gb"], ["created_at", "2019-11-20 06:26:40.045394"], ["updated_at", "2019-11-20 06:26:40.045394"], ["price", 615.99]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 3], ["product_id", 8], ["condition", "new"], ["color", "silver"], ["storage", "512gb"], ["memory", "8gb"], ["created_at", "2019-11-20 06:26:40.049213"], ["updated_at", "2019-11-20 06:26:40.049213"], ["price", 800.99]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mListing Create (0.3ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 1], ["product_id", 8], ["condition", "new"], ["color", "grey"], ["storage", "1tb"], ["memory", "8gb"], ["created_at", "2019-11-20 06:26:40.053010"], ["updated_at", "2019-11-20 06:26:40.053010"], ["price", 600.99]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 2], ["product_id", 8], ["condition", "new"], ["color", "silver"], ["storage", "512gb"], ["memory", "16gb"], ["created_at", "2019-11-20 06:26:40.057545"], ["updated_at", "2019-11-20 06:26:40.057545"], ["price", 548.99]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 3], ["product_id", 8], ["condition", "new"], ["color", "grey"], ["storage", "256gb"], ["memory", "8gb"], ["created_at", "2019-11-20 06:26:40.061562"], ["updated_at", "2019-11-20 06:26:40.061562"], ["price", 788.99]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 1], ["product_id", 9], ["condition", "new"], ["color", "silver"], ["storage", "16gb"], ["memory", "4gb"], ["created_at", "2019-11-20 06:26:40.065423"], ["updated_at", "2019-11-20 06:26:40.065423"], ["price", 100.99]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 2], ["product_id", 9], ["condition", "new"], ["color", "grey"], ["storage", "256gb"], ["memory", "16gb"], ["created_at", "2019-11-20 06:26:40.069230"], ["updated_at", "2019-11-20 06:26:40.069230"], ["price", 615.99]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 3], ["product_id", 9], ["condition", "new"], ["color", "silver"], ["storage", "512gb"], ["memory", "8gb"], ["created_at", "2019-11-20 06:26:40.073095"], ["updated_at", "2019-11-20 06:26:40.073095"], ["price", 800.99]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 1], ["product_id", 9], ["condition", "new"], ["color", "grey"], ["storage", "1tb"], ["memory", "8gb"], ["created_at", "2019-11-20 06:26:40.077486"], ["updated_at", "2019-11-20 06:26:40.077486"], ["price", 600.99]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mListing Create (0.4ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 2], ["product_id", 9], ["condition", "new"], ["color", "silver"], ["storage", "512gb"], ["memory", "16gb"], ["created_at", "2019-11-20 06:26:40.081735"], ["updated_at", "2019-11-20 06:26:40.081735"], ["price", 548.99]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 3], ["product_id", 9], ["condition", "new"], ["color", "grey"], ["storage", "256gb"], ["memory", "8gb"], ["created_at", "2019-11-20 06:26:40.096735"], ["updated_at", "2019-11-20 06:26:40.096735"], ["price", 788.99]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 1], ["product_id", 10], ["condition", "new"], ["color", "silver"], ["storage", "16gb"], ["memory", "4gb"], ["created_at", "2019-11-20 06:26:40.101636"], ["updated_at", "2019-11-20 06:26:40.101636"], ["price", 100.99]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 2], ["product_id", 10], ["condition", "new"], ["color", "grey"], ["storage", "256gb"], ["memory", "16gb"], ["created_at", "2019-11-20 06:26:40.106403"], ["updated_at", "2019-11-20 06:26:40.106403"], ["price", 615.99]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 3], ["product_id", 10], ["condition", "new"], ["color", "silver"], ["storage", "512gb"], ["memory", "8gb"], ["created_at", "2019-11-20 06:26:40.110773"], ["updated_at", "2019-11-20 06:26:40.110773"], ["price", 800.99]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mListing Create (0.4ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 1], ["product_id", 10], ["condition", "new"], ["color", "grey"], ["storage", "1tb"], ["memory", "8gb"], ["created_at", "2019-11-20 06:26:40.115696"], ["updated_at", "2019-11-20 06:26:40.115696"], ["price", 600.99]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mListing Create (0.2ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 2], ["product_id", 10], ["condition", "new"], ["color", "silver"], ["storage", "512gb"], ["memory", "16gb"], ["created_at", "2019-11-20 06:26:40.121081"], ["updated_at", "2019-11-20 06:26:40.121081"], ["price", 548.99]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mListing Create (0.4ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 3], ["product_id", 10], ["condition", "new"], ["color", "grey"], ["storage", "256gb"], ["memory", "8gb"], ["created_at", "2019-11-20 06:26:40.126052"], ["updated_at", "2019-11-20 06:26:40.126052"], ["price", 788.99]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReview Create (0.8ms)[0m  [1m[32mINSERT INTO "reviews" ("product_id", "user_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["product_id", 1], ["user_id", 1], ["content", "Was the first of it's kind but now it's outdated"], ["created_at", "2019-11-20 06:26:40.138993"], ["updated_at", "2019-11-20 06:26:40.138993"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mReview Create (0.2ms)[0m  [1m[32mINSERT INTO "reviews" ("product_id", "user_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["product_id", 2], ["user_id", 2], ["content", "XR has nice colors"], ["created_at", "2019-11-20 06:26:40.144799"], ["updated_at", "2019-11-20 06:26:40.144799"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mReview Create (0.2ms)[0m  [1m[32mINSERT INTO "reviews" ("product_id", "user_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["product_id", 3], ["user_id", 3], ["content", "The XS dual camera is amazing!!"], ["created_at", "2019-11-20 06:26:40.149377"], ["updated_at", "2019-11-20 06:26:40.149377"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mReview Create (0.2ms)[0m  [1m[32mINSERT INTO "reviews" ("product_id", "user_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["product_id", 4], ["user_id", 1], ["content", "The XS MAX has such a nice screen. It's like looking out a window...(um)"], ["created_at", "2019-11-20 06:26:40.154045"], ["updated_at", "2019-11-20 06:26:40.154045"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mReview Create (0.2ms)[0m  [1m[32mINSERT INTO "reviews" ("product_id", "user_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["product_id", 5], ["user_id", 2], ["content", "I dropped my 8 and it shattered. Dissapointed in the build quality"], ["created_at", "2019-11-20 06:26:40.165758"], ["updated_at", "2019-11-20 06:26:40.165758"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mReview Create (0.2ms)[0m  [1m[32mINSERT INTO "reviews" ("product_id", "user_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["product_id", 6], ["user_id", 3], ["content", "The plus is nice upgrade from the iPhone 5 I had. It's blazing fast in comparison!"], ["created_at", "2019-11-20 06:26:40.169917"], ["updated_at", "2019-11-20 06:26:40.169917"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mReview Create (0.2ms)[0m  [1m[32mINSERT INTO "reviews" ("product_id", "user_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["product_id", 7], ["user_id", 1], ["content", "This macbook has such a small screen. Great for students not so much for professionals."], ["created_at", "2019-11-20 06:26:40.174043"], ["updated_at", "2019-11-20 06:26:40.174043"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mReview Create (0.2ms)[0m  [1m[32mINSERT INTO "reviews" ("product_id", "user_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["product_id", 8], ["user_id", 2], ["content", "My everyday workhorse. I love the portability!"], ["created_at", "2019-11-20 06:26:40.177788"], ["updated_at", "2019-11-20 06:26:40.177788"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mReview Create (0.2ms)[0m  [1m[32mINSERT INTO "reviews" ("product_id", "user_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["product_id", 9], ["user_id", 3], ["content", "This thing is a beast! I can edit video on the fly and listen to spotify!"], ["created_at", "2019-11-20 06:26:40.181452"], ["updated_at", "2019-11-20 06:26:40.181452"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mReview Create (0.2ms)[0m  [1m[32mINSERT INTO "reviews" ("product_id", "user_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["product_id", 10], ["user_id", 1], ["content", "Super light and easy to carry around!"], ["created_at", "2019-11-20 06:26:40.185258"], ["updated_at", "2019-11-20 06:26:40.185258"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/" for ::1 at 2019-11-20 00:27:20 -0600
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:9
+  Rendered products/index.html.erb within layouts/application (Duration: 14.5ms | Allocations: 6322)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered sessions/_form.html.erb (Duration: 3.1ms | Allocations: 634)
+Completed 200 OK in 131ms (Views: 110.2ms | ActiveRecord: 8.1ms | Allocations: 31901)
+
+
+Started POST "/login" for ::1 at 2019-11-20 00:27:25 -0600
+Processing by SessionsController#create as JS
+  Parameters: {"authenticity_token"=>"7MFq8k1g+3xaoO7G57V7Qfg5PDXe6LqVIJfp6XRT+TBtG3ScM4jU1N2IA0jjXCjausX1mrigHfHx4joVhuWBng==", "user"=>{"username"=>"hemesh", "password"=>"[FILTERED]"}, "commit"=>"Log In"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "hemesh"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+Redirected to http://localhost:3000/
+Completed 200 OK in 216ms (ActiveRecord: 2.8ms | Allocations: 6295)
+
+
+Started GET "/" for ::1 at 2019-11-20 00:27:26 -0600
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:9
+  Rendered products/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1167)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 22ms (Views: 20.4ms | ActiveRecord: 0.8ms | Allocations: 8917)
+
+
+Started GET "/listings/new_iphone" for ::1 at 2019-11-20 00:27:28 -0600
+Processing by ListingsController#new_iphone as HTML
+  Rendering listings/new_iphone.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."type_id" = $1[0m  [["type_id", 1]]
+  ↳ app/views/listings/_form_iphone.html.erb:4
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered listings/_form_iphone.html.erb (Duration: 25.5ms | Allocations: 8296)
+  Rendered listings/new_iphone.html.erb within layouts/application (Duration: 26.7ms | Allocations: 8614)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 83ms (Views: 39.4ms | ActiveRecord: 3.2ms | Allocations: 24905)
+
+
+Started POST "/listings" for ::1 at 2019-11-20 00:27:34 -0600
+Processing by ListingsController#create as HTML
+  Parameters: {"authenticity_token"=>"SKDDQqMpI3p2nUh0t+/BeYCYxbB8Z4ZlaDfM993Es29QzcnNDw5qssyYv2w/fnA8G/1oFXtLewww48rXdRK2GA==", "listing"=>{"product_id"=>"1", "condition"=>"new", "color"=>"silver", "storage"=>"16gb", "memory"=>"4gb", "price"=>"345", "user_id"=>"1"}, "commit"=>"Submit"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/listings_controller.rb:12:in `create'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/listings_controller.rb:12:in `create'
+  [1m[36mListing Create (0.9ms)[0m  [1m[32mINSERT INTO "listings" ("user_id", "product_id", "condition", "color", "storage", "memory", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 1], ["product_id", 1], ["condition", "new"], ["color", "silver"], ["storage", "16gb"], ["memory", "4gb"], ["created_at", "2019-11-20 06:27:34.612712"], ["updated_at", "2019-11-20 06:27:34.612712"], ["price", 345.0]]
+  ↳ app/controllers/listings_controller.rb:12:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/listings_controller.rb:12:in `create'
+Redirected to http://localhost:3000/listings/61
+Completed 302 Found in 23ms (ActiveRecord: 2.1ms | Allocations: 6036)
+
+
+Started GET "/listings/61" for ::1 at 2019-11-20 00:27:34 -0600
+Processing by ListingsController#show as HTML
+  Parameters: {"id"=>"61"}
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+  ↳ app/controllers/listings_controller.rb:17:in `show'
+  Rendering listings/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/listings/show.html.erb:3
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/listings/show.html.erb:10
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "exchanges" WHERE "exchanges"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:50:in `display_likes'
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:25:in `inactive_listings'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "hemesh"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered comments/_form.html.erb (Duration: 7.9ms | Allocations: 1382)
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 61]]
+  ↳ app/views/listings/show.html.erb:62
+  Rendered listings/show.html.erb within layouts/application (Duration: 66.3ms | Allocations: 15751)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 127ms (Views: 90.2ms | ActiveRecord: 13.4ms | Allocations: 27818)
+
+
+Started POST "/listings/61/comments" for ::1 at 2019-11-20 00:27:40 -0600
+Processing by CommentsController#create as HTML
+  Parameters: {"authenticity_token"=>"iuupAuLP9L6gyIZ9tn9+EUxncuy0s0VBZ6kdoHXrip0LMbdsnCfbFifga/Oyli2KDpu7Q9L74iW23M5ch13yMw==", "comment"=>{"content"=>"is this working?", "user_id"=>"1", "listing_id"=>"61"}, "commit"=>"Submit", "listing_id"=>"61"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/comments_controller.rb:6:in `create'
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:6:in `create'
+  [1m[36mComment Create (0.6ms)[0m  [1m[32mINSERT INTO "comments" ("listing_id", "user_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["listing_id", 61], ["user_id", 1], ["content", "is this working?"], ["created_at", "2019-11-20 06:27:40.150679"], ["updated_at", "2019-11-20 06:27:40.150679"]]
+  ↳ app/controllers/comments_controller.rb:6:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/comments_controller.rb:6:in `create'
+Redirected to http://localhost:3000/listings/61
+Completed 302 Found in 10ms (ActiveRecord: 1.6ms | Allocations: 4402)
+
+
+Started GET "/listings/61" for ::1 at 2019-11-20 00:27:40 -0600
+Processing by ListingsController#show as HTML
+  Parameters: {"id"=>"61"}
+  [1m[36mListing Load (0.3ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+  ↳ app/controllers/listings_controller.rb:17:in `show'
+  Rendering listings/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/listings/show.html.erb:3
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/listings/show.html.erb:10
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "exchanges" WHERE "exchanges"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:50:in `display_likes'
+  [1m[36mListing Load (0.3ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:25:in `inactive_listings'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "hemesh"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered comments/_form.html.erb (Duration: 1.2ms | Allocations: 529)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 61]]
+  ↳ app/views/listings/show.html.erb:62
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 61]]
+  ↳ app/views/listings/show.html.erb:64
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/listings/show.html.erb:65
+  Rendered listings/show.html.erb within layouts/application (Duration: 24.2ms | Allocations: 10270)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 37ms (Views: 31.2ms | ActiveRecord: 3.7ms | Allocations: 17788)
+
+
+Started GET "/" for ::1 at 2019-11-20 00:27:46 -0600
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:9
+  Rendered products/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1170)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 22ms (Views: 20.1ms | ActiveRecord: 0.6ms | Allocations: 8804)
+
+
+Started GET "/products/1" for ::1 at 2019-11-20 00:27:47 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:7:in `show'
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mListing Load (0.2ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/models/product.rb:7:in `active_listings'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/products/show.html.erb:13
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "exchanges" WHERE "exchanges"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:50:in `display_likes'
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:25:in `inactive_listings'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "hemesh"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/products/show.html.erb:13
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "exchanges" WHERE "exchanges"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/models/user.rb:50:in `display_likes'
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/models/user.rb:25:in `inactive_listings'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "jason"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/products/show.html.erb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "exchanges" WHERE "exchanges"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/models/user.rb:50:in `display_likes'
+  [1m[36mListing Load (0.2ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/models/user.rb:25:in `inactive_listings'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "edwin"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/products/show.html.erb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "exchanges" WHERE "exchanges"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:50:in `display_likes'
+  [1m[36mCACHE Listing Load (0.0ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:25:in `inactive_listings'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "hemesh"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/products/show.html.erb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "exchanges" WHERE "exchanges"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/models/user.rb:50:in `display_likes'
+  [1m[36mCACHE Listing Load (0.0ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/models/user.rb:25:in `inactive_listings'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "jason"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/products/show.html.erb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "exchanges" WHERE "exchanges"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/models/user.rb:50:in `display_likes'
+  [1m[36mCACHE Listing Load (0.0ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/models/user.rb:25:in `inactive_listings'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "edwin"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/products/show.html.erb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "exchanges" WHERE "exchanges"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:50:in `display_likes'
+  [1m[36mCACHE Listing Load (0.0ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:25:in `inactive_listings'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "hemesh"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered reviews/_form.html.erb (Duration: 2.3ms | Allocations: 878)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/views/products/show.html.erb:32
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/views/products/show.html.erb:34
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/products/show.html.erb:35
+  Rendered products/show.html.erb within layouts/application (Duration: 76.0ms | Allocations: 38736)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 114ms (Views: 79.4ms | ActiveRecord: 10.7ms | Allocations: 52961)
+
+
+Started GET "/" for ::1 at 2019-11-20 00:27:49 -0600
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:9
+  Rendered products/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1176)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 26ms (Views: 24.2ms | ActiveRecord: 0.8ms | Allocations: 8817)
+
+
+Started GET "/users/1" for ::1 at 2019-11-20 00:27:51 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "exchanges" WHERE "exchanges"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:50:in `display_likes'
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:25:in `inactive_listings'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "hemesh"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "hemesh"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:39
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:39
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:39
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:39
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:39
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:39
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:39
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:39
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:39
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:39
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:39
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:39
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:39
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:39
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:39
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:39
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:39
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:39
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:39
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:39
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:39
+  Rendered users/show.html.erb within layouts/application (Duration: 48.2ms | Allocations: 21063)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 64ms (Views: 55.5ms | ActiveRecord: 5.1ms | Allocations: 29248)
+
+
+Started GET "/listings/61" for ::1 at 2019-11-20 00:27:58 -0600
+Processing by ListingsController#show as HTML
+  Parameters: {"id"=>"61"}
+  [1m[36mListing Load (0.3ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+  ↳ app/controllers/listings_controller.rb:17:in `show'
+  Rendering listings/show.html.erb within layouts/application
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/listings/show.html.erb:3
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/listings/show.html.erb:10
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "exchanges" WHERE "exchanges"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:50:in `display_likes'
+  [1m[36mListing Load (0.5ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:25:in `inactive_listings'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "hemesh"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered comments/_form.html.erb (Duration: 1.2ms | Allocations: 532)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 61]]
+  ↳ app/views/listings/show.html.erb:62
+  [1m[36mComment Load (1.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 61]]
+  ↳ app/views/listings/show.html.erb:64
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/listings/show.html.erb:65
+  Rendered listings/show.html.erb within layouts/application (Duration: 64.3ms | Allocations: 9386)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 79ms (Views: 70.6ms | ActiveRecord: 6.0ms | Allocations: 16999)
+
+
+Started GET "/products/1" for ::1 at 2019-11-20 00:28:01 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:7:in `show'
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/models/product.rb:7:in `active_listings'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/products/show.html.erb:13
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "exchanges" WHERE "exchanges"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:50:in `display_likes'
+  [1m[36mListing Load (0.9ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:25:in `inactive_listings'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "hemesh"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/products/show.html.erb:13
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "exchanges" WHERE "exchanges"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/models/user.rb:50:in `display_likes'
+  [1m[36mListing Load (0.3ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/models/user.rb:25:in `inactive_listings'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "jason"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/products/show.html.erb:13
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "exchanges" WHERE "exchanges"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/models/user.rb:50:in `display_likes'
+  [1m[36mListing Load (0.5ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/models/user.rb:25:in `inactive_listings'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "edwin"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/products/show.html.erb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "exchanges" WHERE "exchanges"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:50:in `display_likes'
+  [1m[36mCACHE Listing Load (0.0ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:25:in `inactive_listings'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "hemesh"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/products/show.html.erb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "exchanges" WHERE "exchanges"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/models/user.rb:50:in `display_likes'
+  [1m[36mCACHE Listing Load (0.0ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/models/user.rb:25:in `inactive_listings'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "jason"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/products/show.html.erb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "exchanges" WHERE "exchanges"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/models/user.rb:50:in `display_likes'
+  [1m[36mCACHE Listing Load (0.0ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/models/user.rb:25:in `inactive_listings'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "edwin"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/products/show.html.erb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "exchanges" WHERE "exchanges"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:50:in `display_likes'
+  [1m[36mCACHE Listing Load (0.0ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:25:in `inactive_listings'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "hemesh"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:54:in `display_likes'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered reviews/_form.html.erb (Duration: 0.8ms | Allocations: 536)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/views/products/show.html.erb:32
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/views/products/show.html.erb:34
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/products/show.html.erb:35
+  Rendered products/show.html.erb within layouts/application (Duration: 79.4ms | Allocations: 33860)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 93ms (Views: 81.1ms | ActiveRecord: 9.1ms | Allocations: 41470)
+
+
+Started DELETE "/logout" for ::1 at 2019-11-20 00:28:05 -0600
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"50p7lVlGSPw2NQWQWThrYLEgUJcZmRGZpkHrx21RZv1mkGX7J65nVLEd6B5d0Tj789yZOH/Rtv13NDg7n+ceUw=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 368)
+
+
+Started GET "/" for ::1 at 2019-11-20 00:28:05 -0600
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:9
+  Rendered products/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1166)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered sessions/_form.html.erb (Duration: 0.6ms | Allocations: 245)
+Completed 200 OK in 21ms (Views: 17.5ms | ActiveRecord: 0.8ms | Allocations: 9168)
+
+
