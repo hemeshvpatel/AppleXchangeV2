@@ -1,0 +1,50 @@
+<div class="container">
+
+<div class="row">
+    <div class="col-sm-6">
+        <h1><%= @user.full_name %> <%= "(#{@user.approval_rating})" %></h1>
+            <br>
+        <h4>Username: <%= @user.username %></h4>
+        <h4>Likes: <%= @user.display_likes %> </h4> 
+        <h4>Total Exchanges: <%= @user.exchanges.size + @user.inactive_listings.size  %> </h4>
+            <br>
+        <h4> Balance: $<%= @user.display_balance %> </h4>
+        <h5> <%= link_to "Add to Balance", addmoney_path %> </h5>
+    </div>
+    <div class="col-sm-6">
+        <br>
+        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b2a32517-aff9-446f-82cc-5d73bc4e88cb/d22j3py-ec48eda2-026d-4870-9fb5-d1877ee19f13.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2IyYTMyNTE3LWFmZjktNDQ2Zi04MmNjLTVkNzNiYzRlODhjYlwvZDIyajNweS1lYzQ4ZWRhMi0wMjZkLTQ4NzAtOWZiNS1kMTg3N2VlMTlmMTMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.skqCBVLBw3ialP7j2xNu94qW2JMk69_TlCmEo_0HU9M" class="img-responsive center-block" width="350px">
+    </div>
+</div>   
+    <br><br>
+<div class="row">
+    <div class="col-sm-6">
+        <h2>My Purchases:</h2>
+        <% @user.exchanges.each do |exchange| %>
+            <%= link_to exchange.display_purchase, exchange_path(exchange) %><br>
+        <% end %>
+    </div>
+    <div class="col-sm-6">
+        <h2>My Sales:</h2>
+        <% @user.sales.each do |exchange| %>
+            <%= link_to exchange.display_sale, exchange_path(exchange) %><br>
+        <% end %>
+    </div>
+</div>
+    <br><br>
+<div class="row">
+    <div class="col-sm-6">
+        <h2>My Active Listings:</h2>
+        <% @user.active_listings.each do |listing| %>
+            <%= link_to "#{listing.product.name} created on #{listing.created_at.strftime("%b %e %Y")}", listing_path(listing) %><br>
+        <% end %>
+    </div>
+    <div class="col-sm-6">
+        <h2>My Closed Listings</h2>
+        <% @user.inactive_listings.each do |listing| %>
+            <%= link_to "#{listing.product.name} closed on #{listing.updated_at.strftime("%b %e %Y")}", listing_path(listing)%><br>
+        <% end %>
+    </div>
+</div>
+
+</div>
