@@ -136,3 +136,46 @@ ActionView::Template::Error (Error: File to import not found or unreadable: boot
   
 app/assets/stylesheets/application.scss:16
 app/views/layouts/application.html.erb:14
+Started GET "/" for ::1 at 2019-11-20 00:23:47 -0600
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:9
+  Rendered products/index.html.erb within layouts/application (Duration: 6.5ms | Allocations: 1534)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/hemesh/Flatiron/Projects/AppleXchangeV2/public/packs
+[Webpacker] Hash: 53154d7baad00c6a1252
+Version: webpack 4.41.2
+Time: 1658ms
+Built at: 11/20/2019 12:23:54 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-0b67a3cc2fcde6055024.js    124 KiB  application  [emitted] [immutable]  application
+js/application-0b67a3cc2fcde6055024.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-0b67a3cc2fcde6055024.js js/application-0b67a3cc2fcde6055024.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered sessions/_form.html.erb (Duration: 3.8ms | Allocations: 642)
+Completed 200 OK in 7519ms (Views: 7500.9ms | ActiveRecord: 7.8ms | Allocations: 112181)
+
+
+Started GET "/" for ::1 at 2019-11-20 00:24:32 -0600
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:9
+  Rendered products/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 601)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered sessions/_form.html.erb (Duration: 0.4ms | Allocations: 244)
+Completed 200 OK in 48ms (Views: 45.2ms | ActiveRecord: 0.7ms | Allocations: 8639)
+
+
